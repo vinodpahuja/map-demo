@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Map Demo - Google Map JS API</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <style>
+	#map {
+	  height: 100%;
+	}
+
+	html,
+	body {
+	  height: 100%;
+	  margin: 0;
+	  padding: 0;
+	}
+  </style>
+  <script>  
+	window.initMap = function () {
+	  const map = displayMap();
+	}
+
+	function displayMap() {
+	  const mapOptions = {
+		center: { lat: 23.353639266535048, lng: 78.07710314717771 },
+		zoom: 2.5
+	  };
+	  const mapDiv = document.getElementById('map');
+	  return new google.maps.Map(mapDiv, mapOptions);
+	}
+  </script>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script 
+	defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACOmqBjBlxdDYA_nnHG9Ir5WWeS-dV1CM&callback=initMap&v=weekly">
+  </script>	
+</body>
+
+</html>
