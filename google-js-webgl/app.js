@@ -18,7 +18,7 @@ var finalScaleY;
 
 if(hash == "#ig") {
 	loc = { lat: 28.6129, lng: 77.2295 };
-	source = "india_gate.glb";
+	source = "../assets/india_gate.glb";
 	intialHeading = 90;
 	finalHeading = intialHeading + 0;
 	intialScaleY = 5;
@@ -26,7 +26,7 @@ if(hash == "#ig") {
 	document.title = "India Gate";
 } else if(hash== "#newph") {
 	loc = { lat: 28.6172, lng: 77.2094 };
-	source = "newph.glb";
+	source = "../assets/newph.glb";
 	intialHeading = -90;
 	finalHeading = intialHeading + 90;
 	intialScaleY = 5;
@@ -72,7 +72,7 @@ function initWebGLOverlayView(map) {
     scene.add(directionalLight);
   
     // load the model    
-    loader = new THREE.GLTFLoader();                   
+    loader = new THREE.GLTFLoader();
     loader.load(
       source,
       gltf => {
