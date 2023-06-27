@@ -1,0 +1,50 @@
+<html>
+
+<head>
+	<title>New Parliament House</title>
+	<link href="https://cdn.osmbuildings.org/4.1.1/OSMBuildings.css" rel="stylesheet">
+	<script src="https://cdn.osmbuildings.org/4.1.1/OSMBuildings.js"></script>
+</head>
+
+<body>
+	<div id="map"></div>
+
+	<script>
+
+	var map = new OSMBuildings({
+		container: 'map',
+		position: { latitude: 28.6172, longitude: 77.2094 }, //NPH
+		zoom: 17,
+		minZoom: 16,
+		maxZoom: 20,
+		tilt : 45,
+		rotation: 0,
+		effects: ['shadows'],
+		attribution: '© Data <a href="https://openstreetmap.org/copyright/">OpenStreetMap</a> © 3D <a href="https://osmbuildings.org/copyright/">OSM Buildings</a>'
+	})
+
+	map.addMapTiles('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png');
+	map.addGeoJSONTiles(window.location.origin + "/map-demo/assets/newph.json");
+
+	let rotation = -90;
+	let zoom = 16;
+
+	function rotate () {
+	  rotation += 1;
+	  zoom = zoom + 1/90;
+	  if(rotation > 0 ) {
+		return;
+	  }
+	  
+	  map.setRotation(rotation);
+	  map.setZoom(zoom);
+	  
+	  requestAnimationFrame(rotate);
+	}
+
+	rotate ();
+ 
+	</script>
+</body>
+
+</html>
